@@ -1,0 +1,98 @@
+# Google Dorking
+
+## What is Google Dorking?
+
+Google Dorking (also known as Google Hacking) is the practice of using advanced Google search operators to discover publicly accessible information that may not be easily found through normal searches.
+
+It is a passive reconnaissance technique because it uses Google's indexed results without directly interacting with the target's systems.
+
+---
+
+## Why is Google Dorking Important?
+
+Security professionals use Google Dorking to identify publicly exposed information that could pose a security risk if left accessible.
+
+---
+
+## Common Google Dork Operators
+
+### Search within a specific website
+
+```text
+site:example.com
+```
+
+---
+
+### Search for PDF files
+
+```text
+filetype:pdf site:example.com
+```
+
+---
+
+### Search for login pages
+
+```text
+inurl:login
+```
+
+---
+
+### Search for pages with a specific title
+
+```text
+intitle:"index of"
+```
+
+---
+
+### Search for a specific word in URLs
+
+```text
+inurl:admin
+```
+
+---
+
+### Search for specific text on a website
+
+```text
+intext:"password"
+```
+
+---
+
+## Advantages
+
+- Fast and easy
+- Uses publicly indexed information
+- No direct interaction with the target
+- Helps identify exposed resources
+
+---
+
+## Limitations
+
+- Limited to Google's indexed pages
+- Some results may be outdated
+- Private or protected resources cannot be accessed
+
+---
+
+## Ethical Considerations
+
+Google Dorking should only be used for:
+
+- Security assessments
+- Authorized penetration testing
+- Educational purposes
+
+Do not use it to access unauthorized or sensitive information.
+
+---
+
+## Summary
+
+Google Dorking is a powerful passive reconnaissance technique that helps security professionals discover publicly available information using advanced search operators.
