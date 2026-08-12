@@ -1,0 +1,17 @@
+A firewall is a security system that monitors and controls network traffic entering or leaving a computer or network.
+
+It uses predefined rules to decide whether traffic should be allowed or blocked.
+
+Example:
+
+Port 22 (SSH) → Allow
+Port 23 (Telnet) → Block
+Port 80 (HTTP) → Allow
+
+In our practical, we used iptables to create a rule that blocks incoming TCP traffic on port 23:
+
+sudo iptables -A INPUT -p tcp --dport 23 -j DROP
+
+In one line:
+
+A firewall protects a system by allowing trusted network traffic and blocking unwanted or unauthorized traffic.
