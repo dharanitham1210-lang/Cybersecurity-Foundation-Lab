@@ -1,0 +1,149 @@
+# Wireshark
+
+## Objective
+
+Learn how to capture and analyze network packets using Wireshark in Kali Linux.
+
+---
+
+## Tool Used
+
+- Kali Linux
+- Wireshark
+
+---
+
+## Launch Wireshark
+
+Open Terminal and run:
+
+```bash
+sudo wireshark
+```
+
+Enter your password when prompted.
+
+---
+
+## Select Network Interface
+
+Choose the active network interface.
+
+In our setup:
+
+```
+eth0
+```
+
+Double-click **eth0** to start capturing packets.
+
+---
+
+## Generate Network Traffic
+
+Open a new terminal while Wireshark is capturing.
+
+### Check Internet Connectivity
+
+```bash
+ping -c 4 8.8.8.8
+```
+
+### Check DNS Resolution
+
+```bash
+ping -c 4 google.com
+```
+
+These commands generate ICMP packets that can be captured in Wireshark.
+
+---
+
+## Capture Analysis
+
+After executing the ping commands:
+
+- Observe live packets appearing in Wireshark.
+- Identify protocols such as:
+  - ICMP
+  - DNS
+  - TCP
+  - UDP
+
+Use the display filter to view specific packets.
+
+Example:
+
+```text
+icmp
+```
+
+---
+
+## Stop Packet Capture
+
+Click the **Red Stop Button** in Wireshark.
+
+---
+
+## Save Capture
+
+Go to:
+
+```
+File → Save As
+```
+
+Save the capture as:
+
+```
+network_capture.pcapng
+```
+
+---
+
+# Commands Used
+
+```bash
+sudo wireshark
+```
+
+```bash
+ping -c 4 8.8.8.8
+```
+
+```bash
+ping -c 4 google.com
+```
+
+---
+
+# Screenshots
+
+### 1. Wireshark Home Screen
+
+(Add Screenshot)
+
+---
+
+### 2. Interface Selection (eth0)
+
+(Add Screenshot)
+
+---
+
+### 3. Live Packet Capture
+
+(Add Screenshot)
+
+---
+
+### 4. Ping Commands Executed
+
+(Add Screenshot)
+
+---
+
+# Outcome
+
+Successfully installed and used Wireshark to capture live network traffic. Generated ICMP traffic using ping commands and observed packets in real time.
