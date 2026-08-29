@@ -1,0 +1,869 @@
+Build a complete, polished, fully functional **single-page cybersecurity capstone prototype** called:
+
+# CYBERLENS
+
+### Explainable Attack Investigation & Response Intelligence
+
+I have approximately 20 minutes to get the prototype running, so prioritize a **working, visually impressive, self-contained application** over a complex architecture.
+
+## CRITICAL REQUIREMENT
+
+Do NOT create a backend, PostgreSQL database, Docker setup, authentication system, external APIs, or complicated multi-service architecture.
+
+Everything must run locally in the browser.
+
+Use:
+
+* React
+* Vite
+* JavaScript
+* Tailwind CSS or clean CSS
+* Lucide React icons
+* Recharts if useful
+* React Flow or another suitable graph library if practical
+
+Use browser state/localStorage for data persistence.
+
+The application must be genuinely functional.
+
+---
+
+# PRODUCT CONCEPT
+
+CyberLens is an investigation-intelligence layer that converts security events into an understandable attack story.
+
+The workflow is:
+
+Security Events
+↓
+Detection
+↓
+Alert Correlation
+↓
+Attack Story Reconstruction
+↓
+Risk Scoring
+↓
+MITRE ATT&CK Mapping
+↓
+Attack Graph
+↓
+Business Impact
+↓
+Response Recommendations
+↓
+What-If Response Simulation
+
+Do NOT claim CyberLens replaces Wazuh, Splunk, Sentinel or Elastic.
+
+Present it as an academic cybersecurity research prototype focused on:
+
+**Explainability + Attack Story Reconstruction + Response Decision Support**
+
+---
+
+# DESIGN
+
+Create a premium professional SOC interface.
+
+Theme:
+
+* Dark cybersecurity interface
+* Black/charcoal background
+* Blue/cyan accent
+* Red for critical alerts
+* Orange for high severity
+* Green for safe/normal
+* Glass/modern panels
+* Subtle animations
+* Professional typography
+* Responsive design
+
+It should look like a real security operations product.
+
+---
+
+# PAGE STRUCTURE
+
+Create a sidebar:
+
+CYBERLENS
+
+Dashboard
+Incidents
+Attack Stories
+Security Events
+Threat Intelligence
+Simulation Lab
+Response Simulator
+MITRE ATT&CK
+Audit Logs
+
+The application can use client-side page state instead of a real router if that makes development faster.
+
+---
+
+# DASHBOARD
+
+Create:
+
+## Top statistics
+
+TOTAL EVENTS
+ACTIVE INCIDENTS
+CRITICAL THREATS
+SUSPICIOUS IPS
+ATTACK STORIES
+
+Use actual state values, not hardcoded display-only numbers.
+
+---
+
+# THREAT ACTIVITY
+
+Create an interactive chart showing:
+
+Security Events
+High Risk Events
+Critical Events
+
+over time.
+
+Use generated demo data.
+
+---
+
+# LIVE SECURITY EVENT STREAM
+
+Display events such as:
+
+10:31:02
+FAILED_LOGIN
+10.10.10.25
+admin
+
+10:31:05
+FAILED_LOGIN
+10.10.10.25
+admin
+
+10:31:10
+SUCCESS_LOGIN
+10.10.10.25
+admin
+
+10:31:25
+PRIVILEGE_ESCALATION
+10.10.10.25
+admin
+
+10:31:40
+SUSPICIOUS_PROCESS
+10.10.10.25
+
+10:32:10
+OUTBOUND_CONNECTION
+10.10.10.25
+
+Each event should have:
+
+timestamp
+source IP
+username
+event type
+severity
+
+---
+
+# ATTACK SIMULATION LAB
+
+This is the most important feature.
+
+Create a large prominent:
+
+## ATTACK SIMULATION LAB
+
+Buttons:
+
+[ Simulate Brute Force ]
+
+[ Simulate Port Scan ]
+
+[ Simulate Credential Compromise ]
+
+[ Simulate Privilege Escalation ]
+
+[ Simulate SQL Injection ]
+
+When the user clicks one:
+
+1. Generate synthetic events.
+2. Add them to the event stream.
+3. Run the detection logic.
+4. Create an alert.
+5. Create an incident.
+6. Calculate risk.
+7. Generate an attack story.
+8. Update dashboard statistics.
+9. Show an animated notification.
+
+Everything must actually work.
+
+---
+
+# BRUTE FORCE SCENARIO
+
+When:
+
+SIMULATE BRUTE FORCE
+
+is clicked:
+
+Generate approximately 12 failed login events.
+
+Then generate:
+
+1 successful login.
+
+Then generate:
+
+privilege escalation.
+
+Then generate:
+
+suspicious process.
+
+The system should detect:
+
+## POSSIBLE CREDENTIAL COMPROMISE
+
+Risk:
+
+92/100
+
+Severity:
+
+CRITICAL
+
+---
+
+# DETECTION ENGINE
+
+Implement JavaScript detection functions.
+
+Examples:
+
+## Brute Force
+
+If:
+
+failed login attempts >= 5
+
+then:
+
+BRUTE_FORCE
+
+## Password Spraying
+
+If:
+
+one source IP attacks multiple usernames
+
+then:
+
+PASSWORD_SPRAYING
+
+## Port Scan
+
+If:
+
+one source IP accesses >= 5 different ports
+
+then:
+
+PORT_SCAN
+
+## SQL Injection
+
+If request contains patterns such as:
+
+UNION SELECT
+OR 1=1
+DROP TABLE
+SELECT *
+
+then:
+
+SQL_INJECTION
+
+## Privilege Escalation
+
+If privilege escalation occurs after authentication compromise:
+
+PRIVILEGE_ESCALATION
+
+The detection engine must process actual generated events.
+
+---
+
+# ALERT CORRELATION
+
+Do not display every event as a separate incident.
+
+Group related events.
+
+Example:
+
+12 failed logins
++
+successful login
++
+privilege escalation
++
+suspicious process
+
+becomes:
+
+## ONE INCIDENT
+
+Instead of:
+
+15 unrelated alerts.
+
+Show:
+
+RAW EVENTS: 15
+
+CORRELATED ALERTS: 4
+
+INCIDENTS: 1
+
+ATTACK STORIES: 1
+
+Calculate:
+
+Alert Compression Ratio
+
+---
+
+# ATTACK STORY
+
+After detection, generate:
+
+# ATTACK STORY
+
+Initial Access
+↓
+Credential Compromise
+↓
+Privilege Escalation
+↓
+Execution
+↓
+Possible Command & Control
+
+Show a chronological timeline.
+
+Every stage must reference the generated events.
+
+Example:
+
+10:31:02
+Multiple failed authentication attempts
+
+↓
+
+10:31:10
+Successful authentication
+
+↓
+
+10:31:25
+Privilege escalation detected
+
+↓
+
+10:31:40
+Suspicious process execution
+
+↓
+
+10:32:10
+Suspicious outbound connection
+
+---
+
+# ATTACK GRAPH
+
+Create a visually impressive interactive attack graph.
+
+Example:
+
+Attacker
+↓
+10.10.10.25
+↓
+admin
+↓
+workstation-01
+↓
+Privilege Escalation
+↓
+server-01
+↓
+Sensitive Resource
+
+Nodes should be clickable.
+
+Clicking a node should show evidence.
+
+If a graph library causes setup problems, implement the graph using styled HTML/CSS cards and connecting lines instead.
+
+Do NOT sacrifice the working application just because of a graph library.
+
+---
+
+# RISK ENGINE
+
+Implement an actual risk calculation.
+
+Start with:
+
+BASE SCORE = 0
+
+Add:
+
+Repeated authentication failures +20
+Successful login after failures +15
+Multiple accounts +15
+Privilege escalation +20
+Critical asset +12
+Suspicious process +10
+Threat intelligence match +8
+
+Clamp final score to 100.
+
+Severity:
+
+0-30 LOW
+31-60 MEDIUM
+61-80 HIGH
+81-100 CRITICAL
+
+Show:
+
+# RISK SCORE: 92/100
+
+and a button:
+
+[ WHY THIS SCORE? ]
+
+When clicked, display the individual contributions.
+
+---
+
+# EXPLAINABLE ALERT
+
+Every generated alert should have:
+
+[ EXPLAIN ALERT ]
+
+Clicking it should show:
+
+WHY WAS THIS ALERT GENERATED?
+
+Use the actual events to generate the explanation.
+
+Example:
+
+17 authentication failures originated from one source IP.
+
+The same source subsequently authenticated successfully.
+
+Privilege escalation occurred shortly afterward.
+
+This sequence is consistent with possible credential compromise.
+
+Confidence:
+
+91%
+
+Do not fake evidence that does not exist.
+
+---
+
+# MITRE ATT&CK
+
+Create a MITRE ATT&CK panel.
+
+For detected behavior show:
+
+Technique
+Technique ID
+Evidence
+Confidence
+
+Example:
+
+Credential Access
+T1110
+Repeated authentication attempts
+92%
+
+Privilege Escalation
+Relevant technique
+Privilege escalation event
+87%
+
+Command and Control
+Relevant technique
+Suspicious outbound connection
+64%
+
+Use "Possible" or "Suspected" when appropriate.
+
+---
+
+# BUSINESS IMPACT
+
+Show:
+
+Affected Users
+Affected Endpoints
+Affected Servers
+Affected Services
+
+And:
+
+Confidentiality
+Integrity
+Availability
+
+with:
+
+LOW
+MEDIUM
+HIGH
+
+Example:
+
+Confidentiality: HIGH
+Integrity: HIGH
+Availability: MEDIUM
+
+Include a short explanation.
+
+---
+
+# ATTACK PROGRESSION
+
+Show:
+
+CURRENT ATTACK STAGE
+
+Credential Compromise
+↓
+Privilege Escalation
+
+Possible Next Stages:
+
+Lateral Movement — 78%
+Persistence — 56%
+Data Access — 64%
+
+Clearly label these as:
+
+POSSIBLE NEXT STAGES
+
+not guaranteed predictions.
+
+---
+
+# RESPONSE SIMULATOR
+
+Create:
+
+# RESPONSE DECISION SUPPORT
+
+Options:
+
+Block Source IP
+Disable Compromised Account
+Isolate Endpoint
+
+Each option displays:
+
+Security Benefit
+Operational Impact
+Estimated Risk After Response
+
+Example:
+
+Block IP
+
+Current Risk:
+92
+
+Estimated Risk:
+55
+
+Security Benefit:
+MEDIUM
+
+Operational Impact:
+LOW
+
+---
+
+# WHAT-IF SIMULATION
+
+Allow the user to select a response.
+
+When selected, update the simulated risk.
+
+Do NOT perform real system actions.
+
+Everything must remain a safe simulation.
+
+---
+
+# INCIDENT INVESTIGATION
+
+When an incident is created, show:
+
+INCIDENT ID
+
+Title
+
+Severity
+
+Risk Score
+
+Confidence
+
+Source IP
+
+Status
+
+Status options:
+
+OPEN
+INVESTIGATING
+CONTAINED
+RESOLVED
+
+Show:
+
+Attack Story
+Timeline
+Evidence
+Attack Graph
+MITRE ATT&CK
+Risk Explanation
+Business Impact
+Response Recommendations
+
+---
+
+# THREAT INTELLIGENCE
+
+Create a simple local threat intelligence database in JavaScript.
+
+Include several synthetic indicators.
+
+Example:
+
+10.10.10.25
+Reputation: Malicious
+Type: Brute Force Source
+Confidence: 94%
+
+Allow searching IPs.
+
+Clearly label the dataset as:
+
+DEMO THREAT INTELLIGENCE DATA
+
+Do not pretend these are real external intelligence results.
+
+---
+
+# AUDIT LOG
+
+Record client-side actions:
+
+Simulation executed
+Incident created
+Incident status changed
+Alert investigated
+Response simulation executed
+
+Show:
+
+Timestamp
+Action
+User
+Resource
+Result
+
+---
+
+# DATA PERSISTENCE
+
+Use localStorage.
+
+When the page is refreshed:
+
+* incidents remain
+* events remain
+* audit logs remain
+* simulation history remains
+
+Add:
+
+[ RESET DEMO DATA ]
+
+button.
+
+---
+
+# DEMO MODE
+
+Create a prominent:
+
+## RUN FULL ATTACK DEMO
+
+button.
+
+When clicked, automatically demonstrate:
+
+Failed logins
+↓
+Successful login
+↓
+Privilege escalation
+↓
+Suspicious process
+↓
+Outbound connection
+↓
+Detection
+↓
+Correlation
+↓
+Attack Story
+↓
+Risk Score
+↓
+Incident
+↓
+Attack Graph
+↓
+Response Recommendation
+
+The UI should visually update during this process.
+
+This is the main presentation feature.
+
+---
+
+# LANDING / EMPTY STATE
+
+If no attacks have been simulated:
+
+Show:
+
+CYBERLENS
+
+"Turn Security Alerts Into Attack Stories."
+
+and:
+
+[ RUN FULL ATTACK DEMO ]
+
+---
+
+# TECHNICAL REQUIREMENTS
+
+Create a Vite React project.
+
+The project must run with:
+
+npm install
+npm run dev
+
+No backend.
+
+No database.
+
+No Docker.
+
+No external API keys.
+
+No environment variables required.
+
+Do not use fake backend APIs.
+
+Use local JavaScript state and localStorage.
+
+---
+
+# CODE QUALITY
+
+Create reusable components.
+
+Suggested:
+
+App
+Sidebar
+Dashboard
+StatCard
+EventStream
+IncidentCard
+AttackStory
+AttackGraph
+RiskScore
+RiskExplanation
+MitrePanel
+BusinessImpact
+ResponseSimulator
+SimulationLab
+AuditLog
+ThreatIntel
+
+Keep components modular but prioritize speed.
+
+---
+
+# FINAL REQUIREMENT
+
+I need the application to be runnable immediately.
+
+Do NOT give me an architecture explanation first.
+
+DO NOT give me pseudocode.
+
+DO NOT leave TODO placeholders.
+
+DO NOT create buttons that do nothing.
+
+Generate the complete project files.
+
+At minimum provide:
+
+package.json
+index.html
+src/main.jsx
+src/App.jsx
+src/index.css
+
+If additional components are needed, create them.
+
+The final application must be visually polished and functionally demonstrate the complete CyberLens workflow.
+
+After generating the code, give me the exact commands:
+
+npm install
+npm run dev
+
+and nothing else unless necessary.
