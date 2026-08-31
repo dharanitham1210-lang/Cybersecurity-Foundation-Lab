@@ -1,869 +1,1106 @@
-Build a complete, polished, fully functional **single-page cybersecurity capstone prototype** called:
+Build a complete full-stack cybersecurity web application called **HYPERCIPHER** using a modern vibe-coding approach.
 
-# CYBERLENS
+The project is an academic cryptography project titled:
 
-### Explainable Attack Investigation & Response Intelligence
+**“Development of a Hybrid Model using Hill Cipher + S-DES + Steganography”**
 
-I have approximately 20 minutes to get the prototype running, so prioritize a **working, visually impressive, self-contained application** over a complex architecture.
+The website must be a REAL WORKING APPLICATION, not a static UI prototype.
 
-## CRITICAL REQUIREMENT
+The application should have a polished cybersecurity dashboard UI, a functional React frontend, and a Node.js/Express backend with working API endpoints.
 
-Do NOT create a backend, PostgreSQL database, Docker setup, authentication system, external APIs, or complicated multi-service architecture.
+---
 
-Everything must run locally in the browser.
+# 1. PRODUCT VISION
+
+HYPERCIPHER combines three security techniques into one hybrid workflow:
+
+**Plaintext**
+↓
+**Hill Cipher Encryption**
+↓
+**S-DES Encryption**
+↓
+**Binary Ciphertext**
+↓
+**Image Steganography**
+↓
+**Secure Stego Image**
+
+For decryption:
+
+**Stego Image**
+↓
+**Extract Hidden Data**
+↓
+**S-DES Decryption**
+↓
+**Hill Cipher Decryption**
+↓
+**Original Plaintext**
+
+The main purpose is to demonstrate layered cryptographic protection and covert communication in an interactive cybersecurity laboratory.
+
+---
+
+# 2. OVERALL ARCHITECTURE
+
+Use this architecture:
+
+```text
+                    HYPERCIPHER
+                         |
+              React Frontend UI
+                         |
+                  REST API Layer
+                         |
+              Node.js + Express
+                         |
+        ┌────────────────┼────────────────┐
+        ↓                ↓                ↓
+   Hill Cipher         S-DES       Steganography
+      Engine            Engine          Engine
+        └────────────────┼────────────────┘
+                         ↓
+                   Hybrid Engine
+```
+
+Frontend handles:
+
+* UI
+* User inputs
+* Form validation
+* Image preview
+* Progress visualization
+* Results
+* API communication
+
+Backend handles:
+
+* Hill Cipher
+* S-DES
+* Hybrid encryption
+* Hybrid decryption
+* Steganography
+* Key validation
+* Image processing
+* Error handling
+
+Do NOT put sensitive cryptographic logic only inside UI components.
+
+Keep the crypto logic modular and reusable.
+
+---
+
+# 3. FRONTEND
 
 Use:
 
 * React
 * Vite
 * JavaScript
-* Tailwind CSS or clean CSS
-* Lucide React icons
-* Recharts if useful
-* React Flow or another suitable graph library if practical
+* Tailwind CSS
+* Lucide React
+* Axios or Fetch API
+* React Router
 
-Use browser state/localStorage for data persistence.
+Create a modern SPA.
 
-The application must be genuinely functional.
+Pages:
 
----
-
-# PRODUCT CONCEPT
-
-CyberLens is an investigation-intelligence layer that converts security events into an understandable attack story.
-
-The workflow is:
-
-Security Events
-↓
-Detection
-↓
-Alert Correlation
-↓
-Attack Story Reconstruction
-↓
-Risk Scoring
-↓
-MITRE ATT&CK Mapping
-↓
-Attack Graph
-↓
-Business Impact
-↓
-Response Recommendations
-↓
-What-If Response Simulation
-
-Do NOT claim CyberLens replaces Wazuh, Splunk, Sentinel or Elastic.
-
-Present it as an academic cybersecurity research prototype focused on:
-
-**Explainability + Attack Story Reconstruction + Response Decision Support**
-
----
-
-# DESIGN
-
-Create a premium professional SOC interface.
-
-Theme:
-
-* Dark cybersecurity interface
-* Black/charcoal background
-* Blue/cyan accent
-* Red for critical alerts
-* Orange for high severity
-* Green for safe/normal
-* Glass/modern panels
-* Subtle animations
-* Professional typography
-* Responsive design
-
-It should look like a real security operations product.
-
----
-
-# PAGE STRUCTURE
-
-Create a sidebar:
-
-CYBERLENS
-
+```text
+/
 Dashboard
-Incidents
-Attack Stories
-Security Events
-Threat Intelligence
-Simulation Lab
-Response Simulator
-MITRE ATT&CK
-Audit Logs
 
-The application can use client-side page state instead of a real router if that makes development faster.
+/hybrid
+Hybrid Encryption
+
+/hill
+Hill Cipher
+
+/sdes
+S-DES
+
+/steganography
+Steganography
+
+/about
+About
+```
 
 ---
 
-# DASHBOARD
+# 4. UI DESIGN
+
+The entire website must use a:
+
+**BLACK + CYBER YELLOW**
+
+theme.
+
+Primary background:
+
+#050505
+
+Secondary:
+
+#0D0D0D
+
+Cards:
+
+#111111
+
+Accent:
+
+#FFD400
+
+Bright accent:
+
+#FFE600
+
+Text:
+
+White / light gray
+
+Do NOT use blue or purple as the primary accent.
+
+Visual style:
+
+* Cybersecurity command center
+* Cryptography laboratory
+* Glassmorphism
+* Neon yellow borders
+* Yellow glow
+* Dark terminal panels
+* Subtle grid background
+* Monospace cryptographic values
+* Professional animations
+
+The website should look like a serious cybersecurity product rather than a basic college form.
+
+---
+
+# 5. NAVBAR
+
+Create a fixed navigation bar.
+
+Logo:
+
+**HYPERCIPHER**
+
+Subtitle:
+
+`CRYPTOGRAPHIC SECURITY LAB`
+
+Navigation:
+
+* Dashboard
+* Hybrid Encryption
+* Hill Cipher
+* S-DES
+* Steganography
+* About
+
+Right side:
+
+`● SYSTEM ONLINE`
+
+Use yellow status indicator.
+
+---
+
+# 6. DASHBOARD UI
+
+Hero section:
+
+```text
+// CRYPTOGRAPHIC SECURITY LABORATORY
+
+HYPERCIPHER
+
+Three Layers.
+One Secure Message.
+```
+
+Description:
+
+"An interactive hybrid cryptographic platform combining Hill Cipher, Simplified DES and image steganography."
+
+Main CTA:
+
+**LAUNCH HYBRID ENCRYPTION**
+
+Secondary:
+
+**EXPLORE ALGORITHMS**
+
+Show three feature cards:
+
+### HILL CIPHER
+
+Matrix-based cryptographic transformation.
+
+### S-DES
+
+Feistel-based block encryption.
+
+### STEGANOGRAPHY
+
+Hide encrypted data inside an image.
+
+---
+
+# 7. MAIN HYBRID UI
+
+This is the most important page.
 
 Create:
 
-## Top statistics
+**HYBRID ENCRYPTION LAB**
 
-TOTAL EVENTS
-ACTIVE INCIDENTS
-CRITICAL THREATS
-SUSPICIOUS IPS
-ATTACK STORIES
+Layout:
 
-Use actual state values, not hardcoded display-only numbers.
+Left side:
 
----
+Input configuration.
 
-# THREAT ACTIVITY
+Right side:
 
-Create an interactive chart showing:
+Encryption pipeline and results.
 
-Security Events
-High Risk Events
-Critical Events
+Top workflow visualization:
 
-over time.
+```text
+MESSAGE
+   ↓
+HILL
+   ↓
+S-DES
+   ↓
+BINARY
+   ↓
+STEGANOGRAPHY
+   ↓
+SECURE IMAGE
+```
 
-Use generated demo data.
+Each stage should have a status:
 
----
-
-# LIVE SECURITY EVENT STREAM
-
-Display events such as:
-
-10:31:02
-FAILED_LOGIN
-10.10.10.25
-admin
-
-10:31:05
-FAILED_LOGIN
-10.10.10.25
-admin
-
-10:31:10
-SUCCESS_LOGIN
-10.10.10.25
-admin
-
-10:31:25
-PRIVILEGE_ESCALATION
-10.10.10.25
-admin
-
-10:31:40
-SUSPICIOUS_PROCESS
-10.10.10.25
-
-10:32:10
-OUTBOUND_CONNECTION
-10.10.10.25
-
-Each event should have:
-
-timestamp
-source IP
-username
-event type
-severity
+* Waiting
+* Processing
+* Completed
+* Error
 
 ---
 
-# ATTACK SIMULATION LAB
-
-This is the most important feature.
-
-Create a large prominent:
-
-## ATTACK SIMULATION LAB
-
-Buttons:
-
-[ Simulate Brute Force ]
-
-[ Simulate Port Scan ]
-
-[ Simulate Credential Compromise ]
-
-[ Simulate Privilege Escalation ]
-
-[ Simulate SQL Injection ]
-
-When the user clicks one:
-
-1. Generate synthetic events.
-2. Add them to the event stream.
-3. Run the detection logic.
-4. Create an alert.
-5. Create an incident.
-6. Calculate risk.
-7. Generate an attack story.
-8. Update dashboard statistics.
-9. Show an animated notification.
-
-Everything must actually work.
-
----
-
-# BRUTE FORCE SCENARIO
-
-When:
-
-SIMULATE BRUTE FORCE
-
-is clicked:
-
-Generate approximately 12 failed login events.
-
-Then generate:
-
-1 successful login.
-
-Then generate:
-
-privilege escalation.
-
-Then generate:
-
-suspicious process.
-
-The system should detect:
-
-## POSSIBLE CREDENTIAL COMPROMISE
-
-Risk:
-
-92/100
-
-Severity:
-
-CRITICAL
-
----
-
-# DETECTION ENGINE
-
-Implement JavaScript detection functions.
-
-Examples:
-
-## Brute Force
-
-If:
-
-failed login attempts >= 5
-
-then:
-
-BRUTE_FORCE
-
-## Password Spraying
-
-If:
-
-one source IP attacks multiple usernames
-
-then:
-
-PASSWORD_SPRAYING
-
-## Port Scan
-
-If:
-
-one source IP accesses >= 5 different ports
-
-then:
-
-PORT_SCAN
-
-## SQL Injection
-
-If request contains patterns such as:
-
-UNION SELECT
-OR 1=1
-DROP TABLE
-SELECT *
-
-then:
-
-SQL_INJECTION
-
-## Privilege Escalation
-
-If privilege escalation occurs after authentication compromise:
-
-PRIVILEGE_ESCALATION
-
-The detection engine must process actual generated events.
-
----
-
-# ALERT CORRELATION
-
-Do not display every event as a separate incident.
-
-Group related events.
-
-Example:
-
-12 failed logins
-+
-successful login
-+
-privilege escalation
-+
-suspicious process
-
-becomes:
-
-## ONE INCIDENT
-
-Instead of:
-
-15 unrelated alerts.
-
-Show:
-
-RAW EVENTS: 15
-
-CORRELATED ALERTS: 4
-
-INCIDENTS: 1
-
-ATTACK STORIES: 1
-
-Calculate:
-
-Alert Compression Ratio
-
----
-
-# ATTACK STORY
-
-After detection, generate:
-
-# ATTACK STORY
-
-Initial Access
-↓
-Credential Compromise
-↓
-Privilege Escalation
-↓
-Execution
-↓
-Possible Command & Control
-
-Show a chronological timeline.
-
-Every stage must reference the generated events.
-
-Example:
-
-10:31:02
-Multiple failed authentication attempts
-
-↓
-
-10:31:10
-Successful authentication
-
-↓
-
-10:31:25
-Privilege escalation detected
-
-↓
-
-10:31:40
-Suspicious process execution
-
-↓
-
-10:32:10
-Suspicious outbound connection
-
----
-
-# ATTACK GRAPH
-
-Create a visually impressive interactive attack graph.
-
-Example:
-
-Attacker
-↓
-10.10.10.25
-↓
-admin
-↓
-workstation-01
-↓
-Privilege Escalation
-↓
-server-01
-↓
-Sensitive Resource
-
-Nodes should be clickable.
-
-Clicking a node should show evidence.
-
-If a graph library causes setup problems, implement the graph using styled HTML/CSS cards and connecting lines instead.
-
-Do NOT sacrifice the working application just because of a graph library.
-
----
-
-# RISK ENGINE
-
-Implement an actual risk calculation.
-
-Start with:
-
-BASE SCORE = 0
-
-Add:
-
-Repeated authentication failures +20
-Successful login after failures +15
-Multiple accounts +15
-Privilege escalation +20
-Critical asset +12
-Suspicious process +10
-Threat intelligence match +8
-
-Clamp final score to 100.
-
-Severity:
-
-0-30 LOW
-31-60 MEDIUM
-61-80 HIGH
-81-100 CRITICAL
-
-Show:
-
-# RISK SCORE: 92/100
-
-and a button:
-
-[ WHY THIS SCORE? ]
-
-When clicked, display the individual contributions.
-
----
-
-# EXPLAINABLE ALERT
-
-Every generated alert should have:
-
-[ EXPLAIN ALERT ]
-
-Clicking it should show:
-
-WHY WAS THIS ALERT GENERATED?
-
-Use the actual events to generate the explanation.
-
-Example:
-
-17 authentication failures originated from one source IP.
-
-The same source subsequently authenticated successfully.
-
-Privilege escalation occurred shortly afterward.
-
-This sequence is consistent with possible credential compromise.
-
-Confidence:
-
-91%
-
-Do not fake evidence that does not exist.
-
----
-
-# MITRE ATT&CK
-
-Create a MITRE ATT&CK panel.
-
-For detected behavior show:
-
-Technique
-Technique ID
-Evidence
-Confidence
-
-Example:
-
-Credential Access
-T1110
-Repeated authentication attempts
-92%
-
-Privilege Escalation
-Relevant technique
-Privilege escalation event
-87%
-
-Command and Control
-Relevant technique
-Suspicious outbound connection
-64%
-
-Use "Possible" or "Suspected" when appropriate.
-
----
-
-# BUSINESS IMPACT
-
-Show:
-
-Affected Users
-Affected Endpoints
-Affected Servers
-Affected Services
-
-And:
-
-Confidentiality
-Integrity
-Availability
-
-with:
-
-LOW
-MEDIUM
-HIGH
-
-Example:
-
-Confidentiality: HIGH
-Integrity: HIGH
-Availability: MEDIUM
-
-Include a short explanation.
-
----
-
-# ATTACK PROGRESSION
-
-Show:
-
-CURRENT ATTACK STAGE
-
-Credential Compromise
-↓
-Privilege Escalation
-
-Possible Next Stages:
-
-Lateral Movement — 78%
-Persistence — 56%
-Data Access — 64%
-
-Clearly label these as:
-
-POSSIBLE NEXT STAGES
-
-not guaranteed predictions.
-
----
-
-# RESPONSE SIMULATOR
+# 8. FRONTEND INPUTS
 
 Create:
 
-# RESPONSE DECISION SUPPORT
+### Secret Message
 
-Options:
+Large textarea.
 
-Block Source IP
-Disable Compromised Account
-Isolate Endpoint
+### Hill Cipher Key
 
-Each option displays:
-
-Security Benefit
-Operational Impact
-Estimated Risk After Response
+2 × 2 matrix.
 
 Example:
 
-Block IP
+```text
+[ 3  3 ]
+[ 2  5 ]
+```
 
-Current Risk:
-92
+Show real-time validation.
 
-Estimated Risk:
-55
+### S-DES Key
 
-Security Benefit:
-MEDIUM
-
-Operational Impact:
-LOW
-
----
-
-# WHAT-IF SIMULATION
-
-Allow the user to select a response.
-
-When selected, update the simulated risk.
-
-Do NOT perform real system actions.
-
-Everything must remain a safe simulation.
-
----
-
-# INCIDENT INVESTIGATION
-
-When an incident is created, show:
-
-INCIDENT ID
-
-Title
-
-Severity
-
-Risk Score
-
-Confidence
-
-Source IP
-
-Status
-
-Status options:
-
-OPEN
-INVESTIGATING
-CONTAINED
-RESOLVED
-
-Show:
-
-Attack Story
-Timeline
-Evidence
-Attack Graph
-MITRE ATT&CK
-Risk Explanation
-Business Impact
-Response Recommendations
-
----
-
-# THREAT INTELLIGENCE
-
-Create a simple local threat intelligence database in JavaScript.
-
-Include several synthetic indicators.
+10-bit input.
 
 Example:
 
-10.10.10.25
-Reputation: Malicious
-Type: Brute Force Source
-Confidence: 94%
+`1010000010`
 
-Allow searching IPs.
+### Cover Image
 
-Clearly label the dataset as:
-
-DEMO THREAT INTELLIGENCE DATA
-
-Do not pretend these are real external intelligence results.
-
----
-
-# AUDIT LOG
-
-Record client-side actions:
-
-Simulation executed
-Incident created
-Incident status changed
-Alert investigated
-Response simulation executed
+Drag-and-drop image upload.
 
 Show:
 
-Timestamp
-Action
-User
-Resource
-Result
+* File name
+* File size
+* Width
+* Height
+* Preview
+* Capacity
 
 ---
 
-# DATA PERSISTENCE
+# 9. ENCRYPTION BUTTON
 
-Use localStorage.
+Primary button:
 
-When the page is refreshed:
+**ENCRYPT & HIDE**
 
-* incidents remain
-* events remain
-* audit logs remain
-* simulation history remains
+When clicked:
 
-Add:
+1. Validate inputs.
+2. Send request to backend.
+3. Show processing state.
+4. Animate each pipeline stage.
+5. Receive results.
+6. Display encrypted information.
+7. Display stego image.
+8. Allow download.
 
-[ RESET DEMO DATA ]
+Do not freeze the UI.
 
-button.
-
----
-
-# DEMO MODE
-
-Create a prominent:
-
-## RUN FULL ATTACK DEMO
-
-button.
-
-When clicked, automatically demonstrate:
-
-Failed logins
-↓
-Successful login
-↓
-Privilege escalation
-↓
-Suspicious process
-↓
-Outbound connection
-↓
-Detection
-↓
-Correlation
-↓
-Attack Story
-↓
-Risk Score
-↓
-Incident
-↓
-Attack Graph
-↓
-Response Recommendation
-
-The UI should visually update during this process.
-
-This is the main presentation feature.
+Show progress.
 
 ---
 
-# LANDING / EMPTY STATE
+# 10. BACKEND API
 
-If no attacks have been simulated:
+Create Node.js + Express backend.
+
+Suggested endpoints:
+
+```text
+POST /api/hill/encrypt
+POST /api/hill/decrypt
+
+POST /api/sdes/encrypt
+POST /api/sdes/decrypt
+
+POST /api/steganography/encode
+POST /api/steganography/decode
+
+POST /api/hybrid/encrypt
+POST /api/hybrid/decrypt
+```
+
+Also:
+
+```text
+GET /api/health
+```
+
+Response:
+
+```json
+{
+  "status": "online",
+  "service": "HYPERCIPHER"
+}
+```
+
+---
+
+# 11. HYBRID ENCRYPT API
+
+Endpoint:
+
+`POST /api/hybrid/encrypt`
+
+Input:
+
+```json
+{
+  "plaintext": "HELLO WORLD",
+  "hillKey": [[3,3],[2,5]],
+  "sdesKey": "1010000010",
+  "image": "uploaded image"
+}
+```
+
+Backend performs:
+
+```text
+Plaintext
+↓
+Hill Cipher
+↓
+Hill Ciphertext
+↓
+S-DES
+↓
+Binary Ciphertext
+↓
+Steganography
+↓
+Stego Image
+```
+
+Return:
+
+```json
+{
+  "success": true,
+  "hillCiphertext": "...",
+  "sdesBinary": "...",
+  "payloadSize": 384,
+  "imageCapacity": 2000000,
+  "stegoImage": "...",
+  "message": "Encryption successful"
+}
+```
+
+---
+
+# 12. HYBRID DECRYPT API
+
+Endpoint:
+
+`POST /api/hybrid/decrypt`
+
+Input:
+
+* Stego image
+* Hill key
+* S-DES key
+
+Backend performs:
+
+```text
+Stego Image
+↓
+LSB Extraction
+↓
+S-DES Decryption
+↓
+Hill Decryption
+↓
+Original Plaintext
+```
+
+Return:
+
+```json
+{
+  "success": true,
+  "plaintext": "HELLO WORLD",
+  "message": "Decryption successful"
+}
+```
+
+---
+
+# 13. HILL CIPHER BACKEND
+
+Create a separate Hill Cipher service/module.
+
+Implement:
+
+* 2 × 2 matrix
+* Modulo 26
+* Determinant
+* GCD validation
+* Modular inverse
+* Matrix inverse
+* Encryption
+* Decryption
+
+Validate:
+
+```text
+gcd(det(K),26) = 1
+```
+
+If invalid:
+
+Return an API error.
+
+The backend must perform the actual mathematics.
+
+---
+
+# 14. S-DES BACKEND
+
+Implement REAL Simplified DES.
+
+Support:
+
+* 10-bit key
+* P10
+* P8
+* P4
+* IP
+* IP inverse
+* EP
+* S0
+* S1
+* SW
+* FK
+* K1
+* K2
+* Encryption
+* Decryption
+
+Support both:
+
+### Binary Mode
+
+8-bit blocks.
+
+### Text Mode
+
+Convert characters into 8-bit ASCII blocks.
+
+Return intermediate values for educational visualization.
+
+---
+
+# 15. STEGANOGRAPHY BACKEND
+
+Implement LSB image steganography.
+
+Use PNG as the preferred format.
+
+Process:
+
+```text
+Image
+↓
+Pixel extraction
+↓
+RGB channels
+↓
+LSB modification
+↓
+Embedded payload
+↓
+PNG output
+```
+
+Do not modify alpha.
+
+Store metadata:
+
+* Magic identifier
+* Payload length
+* Version
+
+Validate image capacity.
+
+If payload exceeds capacity:
+
+Return:
+
+`IMAGE_CAPACITY_EXCEEDED`
+
+---
+
+# 16. DECRYPTION UI
+
+Create a dedicated:
+
+**DECRYPT STEGO IMAGE**
+
+section.
+
+Upload stego image.
+
+Enter:
+
+* Hill Cipher key
+* S-DES key
+
+Button:
+
+**EXTRACT & DECRYPT**
+
+Show live pipeline:
+
+```text
+IMAGE
+✓
+DATA EXTRACTED
+✓
+S-DES DECRYPTED
+✓
+HILL DECRYPTED
+✓
+MESSAGE RECOVERED
+```
+
+Display original plaintext in a large result card.
+
+---
+
+# 17. TERMINAL PANEL
+
+Add a cybersecurity terminal component.
+
+Example:
+
+```text
+[ SYSTEM ] INITIALIZING...
+[ INPUT ] PLAINTEXT RECEIVED
+[ HILL ] ENCRYPTION STARTED
+[ HILL ] ENCRYPTION COMPLETE
+[ S-DES ] KEY GENERATED
+[ S-DES ] BLOCK ENCRYPTION COMPLETE
+[ STEGO ] IMAGE CAPACITY VERIFIED
+[ STEGO ] PAYLOAD EMBEDDED
+[ SYSTEM ] STEGO IMAGE READY
+[ STATUS ] ENCRYPTION SUCCESSFUL
+```
+
+Make logs dynamically update during operations.
+
+---
+
+# 18. RESULT DASHBOARD
+
+After every operation show:
+
+```text
+OPERATION
+Encryption
+
+STATUS
+SUCCESS
+
+PLAINTEXT SIZE
+XX characters
+
+HILL OUTPUT
+XXXXXXXX
+
+S-DES OUTPUT
+XXXXXXXX
+
+PAYLOAD
+XXX bits
+
+IMAGE CAPACITY
+XXXX bits
+
+PROCESSING TIME
+XX ms
+```
+
+Use yellow highlights.
+
+---
+
+# 19. DOWNLOAD
+
+After successful encryption:
 
 Show:
 
-CYBERLENS
+**DOWNLOAD STEGO IMAGE**
 
-"Turn Security Alerts Into Attack Stories."
+Download filename:
+
+`hypercipher-stego.png`
+
+Also provide:
+
+**COPY CIPHERTEXT**
 
 and:
 
-[ RUN FULL ATTACK DEMO ]
+**RESET**
 
 ---
 
-# TECHNICAL REQUIREMENTS
+# 20. ERROR HANDLING
 
-Create a Vite React project.
+Frontend must display friendly errors for:
 
-The project must run with:
+* Empty message
+* Invalid Hill key
+* Invalid determinant
+* Invalid S-DES key
+* Missing image
+* Invalid image
+* Image too small
+* Payload too large
+* Invalid binary
+* Corrupted stego image
+* Wrong decryption key
+* Backend unavailable
 
-npm install
-npm run dev
-
-No backend.
-
-No database.
-
-No Docker.
-
-No external API keys.
-
-No environment variables required.
-
-Do not use fake backend APIs.
-
-Use local JavaScript state and localStorage.
+Never show raw stack traces to the user.
 
 ---
 
-# CODE QUALITY
+# 21. BACKEND SECURITY
 
-Create reusable components.
+Use:
 
-Suggested:
+* Helmet
+* CORS
+* Input validation
+* File type validation
+* File size limits
+* Temporary file cleanup
 
-App
-Sidebar
-Dashboard
-StatCard
-EventStream
-IncidentCard
-AttackStory
-AttackGraph
-RiskScore
-RiskExplanation
-MitrePanel
-BusinessImpact
-ResponseSimulator
-SimulationLab
-AuditLog
-ThreatIntel
+Do not permanently store uploaded images.
 
-Keep components modular but prioritize speed.
+Do not store plaintext.
+
+Do not store cryptographic keys.
+
+Do not log secret messages.
+
+Use temporary processing only.
 
 ---
 
-# FINAL REQUIREMENT
+# 22. PRIVACY INDICATOR
 
-I need the application to be runnable immediately.
+Display prominently:
 
-Do NOT give me an architecture explanation first.
+**100% PRIVATE PROCESSING**
 
-DO NOT give me pseudocode.
+"Files and plaintext are processed only for the current operation and are not permanently stored."
 
-DO NOT leave TODO placeholders.
+If the backend architecture temporarily receives the data, do not falsely claim that it never leaves the browser.
 
-DO NOT create buttons that do nothing.
+---
 
-Generate the complete project files.
+# 23. STANDALONE HILL CIPHER PAGE
 
-At minimum provide:
+Create a beautiful interactive laboratory.
 
-package.json
-index.html
-src/main.jsx
-src/App.jsx
-src/index.css
+Features:
 
-If additional components are needed, create them.
+* Matrix input
+* Plaintext
+* Ciphertext
+* Encrypt
+* Decrypt
+* Generate valid key
+* Determinant
+* Modular inverse
+* Result
 
-The final application must be visually polished and functionally demonstrate the complete CyberLens workflow.
+Show mathematical steps.
 
-After generating the code, give me the exact commands:
+---
 
-npm install
-npm run dev
+# 24. STANDALONE S-DES PAGE
 
-and nothing else unless necessary.
+Create:
+
+**S-DES LABORATORY**
+
+Features:
+
+* 8-bit input
+* 10-bit key
+* Encrypt
+* Decrypt
+* Text mode
+* Binary mode
+* Key generation
+
+Show:
+
+```text
+P10
+K1
+K2
+IP
+ROUND 1
+SWAP
+ROUND 2
+IP^-1
+```
+
+---
+
+# 25. STEGANOGRAPHY PAGE
+
+Create two tabs:
+
+### ENCODE
+
+Image upload.
+
+Secret payload.
+
+Encode.
+
+Download.
+
+### DECODE
+
+Upload stego image.
+
+Extract payload.
+
+Display result.
+
+Show image previews.
+
+---
+
+# 26. ABOUT PAGE
+
+Explain:
+
+### Why Hybrid Cryptography?
+
+Hill Cipher:
+
+Mathematical substitution layer.
+
+S-DES:
+
+Block encryption layer.
+
+Steganography:
+
+Covert communication layer.
+
+Together:
+
+**Encryption + Encryption + Concealment**
+
+Add academic project information.
+
+---
+
+# 27. RESPONSIVE UI
+
+Fully responsive.
+
+Desktop:
+
+Two-column dashboard.
+
+Mobile:
+
+Single-column layout.
+
+All buttons should remain accessible.
+
+---
+
+# 28. UX REQUIREMENTS
+
+Use:
+
+* Loading states
+* Skeleton states where useful
+* Toast notifications
+* Tooltips
+* Progress indicators
+* Empty states
+* Error states
+* Success states
+
+Every button must perform a real action.
+
+No placeholder buttons.
+
+No fake encryption output.
+
+No hardcoded results.
+
+---
+
+# 29. PROJECT STRUCTURE
+
+Use:
+
+```text
+hypercipher/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   └── utils/
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── services/
+│   │   ├── hillCipher.js
+│   │   ├── sdes.js
+│   │   ├── steganography.js
+│   │   └── hybrid.js
+│   ├── middleware/
+│   ├── utils/
+│   └── server.js
+│
+└── README.md
+```
+
+---
+
+# 30. API COMMUNICATION
+
+Create a dedicated frontend API service.
+
+Example:
+
+```text
+frontend
+   ↓
+api.js
+   ↓
+Express REST API
+   ↓
+Crypto services
+   ↓
+JSON response
+   ↓
+React UI
+```
+
+Do not put fetch calls everywhere.
+
+Centralize API communication.
+
+---
+
+# 31. IMPORTANT WORKFLOW TEST
+
+Before completing the project, test:
+
+Message:
+
+`HELLO WORLD`
+
+Hill key:
+
+```text
+3 3
+2 5
+```
+
+S-DES key:
+
+`1010000010`
+
+Upload PNG.
+
+Run:
+
+**Encrypt & Hide**
+
+Download:
+
+`hypercipher-stego.png`
+
+Then upload the generated image to the decrypt section.
+
+Use the same keys.
+
+Run:
+
+**Extract & Decrypt**
+
+Expected result:
+
+`HELLO WORLD`
+
+This round-trip test MUST work.
+
+---
+
+# 32. FINAL QUALITY REQUIREMENT
+
+Do not stop after generating the UI.
+
+First build the UI.
+
+Then implement frontend state management.
+
+Then implement backend APIs.
+
+Then implement cryptographic services.
+
+Then connect frontend to backend.
+
+Then test the complete hybrid workflow.
+
+Then fix errors.
+
+Then improve UI animations.
+
+Then make it responsive.
+
+Then provide a README with:
+
+* Project overview
+* Architecture
+* Installation
+* Frontend setup
+* Backend setup
+* API endpoints
+* Encryption workflow
+* Decryption workflow
+* Steganography method
+* Security limitations
+
+---
+
+# 33. DEVELOPMENT PHILOSOPHY
+
+Use a vibe-coding workflow:
+
+**BUILD → RUN → TEST → FIX → IMPROVE**
+
+Do not ask me unnecessary questions.
+
+Make reasonable technical decisions automatically.
+
+If a dependency causes problems, choose a stable alternative.
+
+If a UI component fails, replace it.
+
+If an API fails, debug the API and reconnect the frontend.
+
+Keep the project runnable after every major change.
+
+The final result should feel like a polished cybersecurity SaaS dashboard.
+
+---
+
+# FINAL EXPERIENCE
+
+When a user opens HYPERCIPHER, they should immediately understand:
+
+**"I can encrypt my message using multiple cryptographic layers and hide the final encrypted payload inside an image."**
+
+The main user journey should be:
+
+```text
+OPEN HYPERCIPHER
+      ↓
+LAUNCH HYBRID ENCRYPTION
+      ↓
+ENTER MESSAGE
+      ↓
+ENTER HILL KEY
+      ↓
+ENTER S-DES KEY
+      ↓
+UPLOAD IMAGE
+      ↓
+ENCRYPT & HIDE
+      ↓
+WATCH LIVE PIPELINE
+      ↓
+DOWNLOAD STEGO IMAGE
+      ↓
+UPLOAD STEGO IMAGE
+      ↓
+EXTRACT & DECRYPT
+      ↓
+RECOVER ORIGINAL MESSAGE
+```
+
+Build the entire application with this experience as the priority.
